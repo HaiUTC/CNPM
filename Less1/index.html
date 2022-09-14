@@ -17,21 +17,62 @@
 			</div>
 			<div class="row p-0 mt-5" style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
 				<div class="leftside col-4 border-end">
-					<p class="fs-5" style='cursor: pointer'>Bài 1</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 2</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 3</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 4</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 5</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 6</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 7</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 8</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 9</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 10</p>
-					<p class="fs-5" style='cursor: pointer'>Bài 11</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(1)">Bài 1</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(2)">Bài 2</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(3)">Bài 3</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(4)">Bài 4</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(5)">Bài 5</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(6)">Bài 6</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(7)">Bài 7</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(8)">Bài 8</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(9)">Bài 9</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(10)">Bài 10</p>
+					<p class="fs-5" style='cursor: pointer' onclick="handleChangeAnswer(11)">Bài 11</p>
 				</div>
 				<div class="rightside col-7">
-					<h5 id='question'>Question: Tìm các số chẵn từ 1 đến 50</h5>
-					<p>Answer: <a href='/'>This is source code for this question</a></p>
+					<div id='toggle'>
+						<h5 id='question'>Question: Tìm các số chẵn từ 1 đến 50</h5>
+						<p id='answer'>Answer: <a href='https://ideone.com/XIM5FY' target="_blank">This is source code for this question</a></p>
+					</div>
+					<div id='main-form'>
+					    <div style="width: 50%;">
+					        <h5 style=" padding-top: 20px; padding-left: 50px; ">Login</h5><br>
+					        <form class="form" >
+					            <div class="form-group" style="padding-left: 80px">
+					                <label>Username:</label><input type="text" id="username-login" class="form-control">
+					                <label>Password:</label><input type="password" id="password-login" class="form-control">
+					                <input type="checkbox" name="check" class="form-group"> <label>Remember me</label><br/>
+					                <input type="submit" onclick="Dangnhap()" id="login" name="btn" value="Login" class ="btn btn-primary" disabled>
+					            </div>
+					        </form>
+					    </div>
+					    <div style="width: 50%;">
+					        <h5 style=" padding-top: 20px; padding-left: 15px;">Signup for New Account?</h5><br>
+					        <form class="form">
+					            <div style="padding-left: 50px">
+					                <label>User Name:</label><input type="text" id="username-signup" name="username" class="form-control">
+					                <label>User Email:</label><input type="email" id="email-signup" name="username" class="form-control">
+					                <div style="display:flex">
+					                    <label>Select Title:</label><br>
+					                    <label style="margin-left:120px">Full name:</label>
+					                </div>
+					                <div style="display:flex">
+					                    <select id="title" name="title" style="width: 150px; height:25px">
+					                        <option value="Mr.">Mr.</option>
+					                        <option value="Mrs.">Mrs.</option>
+					                        <option value="Miss.">Miss.</option>
+					                    </select>
+					                    <input type="text" name="fullname" id="fullname" class="form-control" style="margin-left:50px; width: 300px;">
+					                </div>
+					                <h4 style = "padding-top: 20px; padding-bottom: 20px;">Company details</h4>
+					                <p>Provide details about your company</p>
+					                <h5>Company Name:</h5><input type="text" name="username" class="form-control">
+					                <input type="checkbox" name="check" class="form-group"> <label>I am agree with registration</label><br/>
+					                <input type="submit" name="btn" value="Register" class ="btn btn-primary" onclick="Dangky()" disabled>
+					            </div>
+					        </form>
+					    </div>
+</div>
 				</div>
 			</div>
 			
@@ -39,6 +80,70 @@
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+	<script>
+		const data = [
+			{
+				ques: 'Tìm các số chẵn từ 1 đến 50',
+				ans: 'https://ideone.com/XIM5FY'
+			},
+			{
+				ques: 'Tổng từ 1 đến 100',
+				ans: 'https://ideone.com/vBfgnB'
+			},
+			{
+				ques: 'Tính biểu thức',
+				ans: 'https://ideone.com/Y8Rtry'
+			},
+			{
+				ques: 'Viết chương trình nhập vào 1 số cho đến khi nhập vào số 0 thì dừng',
+				ans: 'https://ideone.com/Brjj5P'
+			},
+			{
+				ques: 'Sử dụng hàm kiểm tra xem một số có phải số hoàn hảo hay không',
+				ans: 'https://ideone.com/RaTmZ1'
+			},
+			{
+				ques: 'Viết hàm tính giá trị của n giai thừa (n! =n(n-1)!)',
+				ans: 'https://ideone.com/3wZinZ'
+			},
+			{
+				ques: 'Liệt kê tất cả các “ước số” của số nguyên dương n',
+				ans: 'https://ideone.com/M06Zbd'
+			},
+			{
+				ques: 'Khởi tạo mọt mảng số nguyên gồm 10 phần tử. Đếm và in ra các phần tử có giá trị âm, giá trị dương.',
+				ans: 'https://ideone.com/g5BJdR'
+			},
+			{
+				ques: 'Viết chương trình nhập vào một số giây sau đó in ra màn hình thời gian dưới dạng giờ:phút:giây',
+				ans: 'https://ideone.com/8gGmCf'
+			},
+			{
+				ques: '10.Class PERSON gồm các thông tin: Họ tên, ngày sinh, quê quán.Xây dựng class SINHVIEN kế thừa từ class trên và có thêm thuộc tính lớp. Tạo đối tượng sinh viên với thông tin in ra là thông tin cá nhân của sinh viên.',
+				ans: 'https://ideone.com/EY6liX',
+			},
+			{
+				ques: '11.Tạo form giao diện như sau:',
+				ans: true,
+			}
+		];
+
+		const handleChangeAnswer = (index) => {
+			const question = document.getElementById('question');
+			const ans = document.getElementById('answer');
+			const toggle = document.getElementById('toggle');
+			const form = document.getElementById('main-form');
+			if (index === 11) {
+				form.style.display = 'block';
+				toggle.style.display = 'none';
+			} else {
+				form.style.display = 'none';
+				toggle.style.display = 'block';
+				question.innerHTML = `Question: ${data[index-1].ques}`;
+				ans.setAttribute('href', data[index-1].ans);
+			}
+		}
+	</script>
 
 </body>
 </html>
